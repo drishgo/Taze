@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-@Data // Automatically generates getters, setters, and other utility methods
+@Data
 public class User {
 
     @Id
@@ -20,19 +20,19 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name = "phone_number", nullable = false) // Adjusted to match database schema
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
     @Column(nullable = false)
-    private String password; // For authentication
+    private String password;
 
     @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt; // Store when the user was created
+    private LocalDateTime createdAt;
 
     @Column(name = "updated_at", nullable = false)
-    private LocalDateTime updatedAt; // Store when the user details were last updated
+    private LocalDateTime updatedAt;
 
-    // Constructor to set timestamps
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
